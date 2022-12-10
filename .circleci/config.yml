@@ -42,6 +42,17 @@ jobs:
           at: ~/
       - run: cat ~/output.txt
 
+  job_failures:
+    docker:
+      - image: circleci/node:13.8.0
+
+    steps:
+      - run: return 1
+
+      - run:
+          command: echo "triggered on job failure"
+          when: on_fail
+        
 
 
   
@@ -55,3 +66,4 @@ workflows:
       - print_output_file:
           requires: 
             - save_hello_world_output
+      - job_failures
