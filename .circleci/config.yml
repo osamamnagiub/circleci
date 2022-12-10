@@ -29,7 +29,10 @@ jobs:
       - checkout
       - run:
           name: "Say world"
-          command: "echo My pipeline id is << pipeline.id >> and my git branch is << pipeline.git.branch >>."
+          command: "echo My pipeline id is << pipeline.id >> and my git branch is << pipeline.git.branch >>." 
+      - run:
+          name: "Env Variable"
+          command: echo ${NAME}
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
