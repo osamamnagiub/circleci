@@ -9,7 +9,7 @@ orbs:
 commands:
   destroy_environments:
     docker:
-     - image: amazon/aws-cli
+      - image: amazon/aws-cli
 
     steps:
       - run:
